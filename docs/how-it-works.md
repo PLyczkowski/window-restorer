@@ -49,7 +49,9 @@ Since the task runs the exe as admin without asking, any program running as you 
 
 ## Installing
 
-`pwsh tools/install.ps1` builds a release copy into `%LocalAppData%\Programs\WindowRestorer` and creates a **Window Restorer** shortcut on the desktop. Run it again to update after code changes. Exit the app from its tray menu first, since a running exe can't be replaced.
+The simplest way is to download `WindowRestorer.exe` from the [latest release](https://github.com/PLyczkowski/window-restorer/releases/latest), put it in a folder of your choice and run it. It needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0). If **Start with Windows** is on, turn it off and on again after moving the exe, so the login task points to the new place.
+
+To install from source, `pwsh tools/install.ps1` builds a release copy into `%LocalAppData%\Programs\WindowRestorer` and creates a **Window Restorer** shortcut on the desktop. Run it again to update after code changes. Exit the app from its tray menu first, since a running exe can't be replaced.
 
 ## Files
 
@@ -75,10 +77,10 @@ Needs the .NET 8 SDK.
 ```
 dotnet build
 dotnet test tests/WindowRestorer.Tests
-dotnet publish src/WindowRestorer -c Release -o publish
+dotnet publish src/WindowRestorer -c Release -o publish -p:PublishSingleFile=true --self-contained false -p:DebugType=none
 ```
 
-The published app is about 350 KB and needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
+The published app is a single exe of about 300 KB (the one attached to releases) and needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 ### Code layout
 

@@ -24,18 +24,18 @@ You can also do it by hand from the tray icon menu: **Remember now**, **Restore 
 
 ## Installing
 
-Needs the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) to build.
-
-```
-git clone https://github.com/PLyczkowski/window-restorer
-cd window-restorer
-pwsh tools/install.ps1
-```
-
-This builds the app into `%LocalAppData%\Programs\WindowRestorer` and puts a **Window Restorer** shortcut on the desktop. Start it, then turn on **Start with Windows** in **Settings…** (tray icon menu).
+1. Install the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) if you don't have it.
+2. Download `WindowRestorer.exe` from the [latest release](https://github.com/PLyczkowski/window-restorer/releases/latest) and put it in a folder where it can stay, e.g. `C:\Program Files\WindowRestorer`.
+3. Run it, then turn on **Start with Windows** in **Settings…** (tray icon menu).
 
 By default it runs as administrator, because Windows doesn't let normal programs move windows of programs running as admin. This can be switched off in Settings.
+
+To build it yourself instead, see [How it works](docs/how-it-works.md#installing).
 
 ## More
 
 See [How it works](docs/how-it-works.md) for all triggers and settings, fallbacks, saved files, known limits and building from source.
+
+## Licence
+
+[MIT](LICENSE)
